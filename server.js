@@ -24,7 +24,7 @@ app.get('/scrape', async (req, res, next) => {
     article.title = $('header.title h1[itemprop="name headline"]').text().trim();
     article.body = $('#article-body').text().trim();
 
-    fs.writeFile(`${article.title}.json`, JSON.stringify(article, null, 4), (err) => {
+    fs.writeFile(`${article.title}.json`, JSON.stringify(article, null, 2), (err) => {
       if (err) {
         res.statusCode(400).send(err);
       }
